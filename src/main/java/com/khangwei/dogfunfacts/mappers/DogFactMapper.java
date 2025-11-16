@@ -1,6 +1,7 @@
 package com.khangwei.dogfunfacts.mappers;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import com.khangwei.dogfunfacts.dtos.DogFactDto;
 import com.khangwei.dogfunfacts.entities.DogFact;
@@ -8,4 +9,7 @@ import com.khangwei.dogfunfacts.entities.DogFact;
 @Mapper(componentModel = "spring")
 public interface DogFactMapper {
     DogFactDto toDto(DogFact dog_fact);
+
+    @Mapping(target = "id", ignore = true)
+    DogFact toEntity(DogFactDto dogFactDto);
 }

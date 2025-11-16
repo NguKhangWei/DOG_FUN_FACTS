@@ -30,7 +30,7 @@ public class DogFactService {
         this.mapper = mapper;
     }
 
-    private void generateDogFact(){
+    public void generateDogFact(){
         String dogFact = HTTP_CLIENT.sendAsync(HTTP_REQUEST, HttpResponse.BodyHandlers.ofString())
                   .thenApply(response -> {
                         try {
@@ -48,13 +48,12 @@ public class DogFactService {
     
     }
 
-    public ResponseEntity<List<DogFactDto>> getAllDogFacts(){
-        this.generateDogFact();
+    public List<DogFactDto> getAllDogFacts(){
         List<DogFactDto> dogFacts = this.repository.findAll()
                                         .stream()
                                         .map(this.mapper::toDto)
                                         .toList();
-        return ResponseEntity.ok(dogFacts);
+        return dogFacts;
     }
 
 }

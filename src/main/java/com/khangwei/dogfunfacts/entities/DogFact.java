@@ -16,6 +16,6 @@ public class DogFact {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "dog_fact")
+    @Column(name = "dog_fact", length = 50)
     private String dogFact;
 }

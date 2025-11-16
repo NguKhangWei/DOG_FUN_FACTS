@@ -1,3 +1,12 @@
 spring:
   application:
     name: dogfunfacts
+  datasource:
+    url: jdbc:mysql://localhost:3306/dog_fun_facts?createDatabaseIfNotExist=true
+    username: root
+    password: Kw998833@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
